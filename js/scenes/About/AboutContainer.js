@@ -23,6 +23,12 @@ export default class AboutContainer extends Component {
       .catch(error => console.log(`Error fetching JSON: ${error}`));
   }
 
+  static route = {
+    navigationBar: {
+      title: 'About',
+    }
+  }
+
   render() {
     return (
       <About codeOfConducts={this.state.codeConductData}/>

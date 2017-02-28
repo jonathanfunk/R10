@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 10,
+    color: '#999999',
   },
   paragraph: {
     marginBottom: 10,
