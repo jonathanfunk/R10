@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import About from './About';
+import { ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchCodeOfConduct } from './../../redux/actions';
 
@@ -12,19 +13,28 @@ class AboutContainer extends Component {
   static route = {
     navigationBar: {
       title: 'About',
-    }
+    },
   }
 
   render() {
-    const codeOfConduct = this.props.codeOfConduct
-    return (
-      <About codeOfConducts={codeOfConduct}/>
-    );
+    const codeOfConduct = this.props.codeOfConduct;
+    const loading = this.props.loading;
+    console.log('Loading is...', this.props.loading)
+    if (loading) {
+      return (
+        <ActivityIndicator animating={true} size="small" color="black" />
+      );
+    } else {
+      return (
+        <About codeOfConduct={codeOfConduct} />
+      );
+    }
   }
 }
 
 const mapStateToProps = state => ({
-  codeOfConduct: state.codeOfConduct,
+  loading: state.codeOfConduct.loadingResource,
+  codeOfConduct: state.codeOfConduct.items,
 });
 
 const mapDispatchToProps = dispatch => ({

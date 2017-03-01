@@ -9,7 +9,7 @@ import {
 import { typography, colors } from './../../config/styles'
 
 
-const About = ({ codeOfConducts }) => (
+const About = ({ codeOfConduct }) => (
   <ScrollView style={styles.aboutWrap}>
     <View style={styles.logoWrap}>
       <Image
@@ -25,10 +25,10 @@ const About = ({ codeOfConducts }) => (
       <Text style={styles.header}>Code of Conduct</Text>
     </View>
     <View>
-      {codeOfConducts.map((codeOfConduct, i) => (
+      {codeOfConduct.map((code, i) => (
         <View key={i}>
-          <Text style={styles.codeTitle}>{codeOfConduct.title}</Text>
-          <Text style={styles.paragraph}>{codeOfConduct.description}</Text>
+          <Text style={styles.codeTitle}>{code.title}</Text>
+          <Text style={styles.paragraph}>{code.description}</Text>
         </View>
       ))}
     </View>
@@ -39,7 +39,7 @@ const About = ({ codeOfConducts }) => (
 );
 
 About.propTypes = {
-  codeOfConducts: PropTypes.array.isRequired,
+  codeOfConduct: PropTypes.array.isRequired,
 }
 
 const styles = StyleSheet.create({
