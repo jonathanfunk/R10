@@ -18,7 +18,6 @@ export const fetchCodeOfConduct = () => {
 };
 
 //SESSION
-
 export const fetchSession = () => {
   return (dispatch) => {
     const data = 'https://r10app-95fea.firebaseio.com/sessions.json';

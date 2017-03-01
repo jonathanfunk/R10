@@ -6,6 +6,7 @@ import {
   Image,
   StyleSheet,
 } from 'react-native';
+import { typography, colors } from './../../config/styles'
 
 
 const About = ({ codeOfConducts }) => (
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    borderBottomColor: '#e6e6e6',
+    borderBottomColor: colors.lightGrey,
     borderBottomWidth: 1,
   },
   aboutContent: {
@@ -63,23 +64,26 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginBottom: 10,
-    color: '#999999',
+    fontFamily: typography.fontMain,
+    color: colors.mediumGrey,
   },
   paragraph: {
+    fontFamily: typography.fontMain,
     marginBottom: 10,
   },
   codeTitle: {
-    color: '#9963ea',
+    fontFamily: typography.fontMain,
+    color: colors.purple,
     marginBottom: 10,
   },
   footer: {
-    borderTopColor: '#e6e6e6',
+    borderTopColor: colors.lightGrey,
     borderTopWidth: 1,
     paddingTop: 20,
     paddingBottom: 20,
   },
   footerText: {
-    fontWeight: '300',
+    fontFamily: typography.fontMainLight,
   }
 });
 
