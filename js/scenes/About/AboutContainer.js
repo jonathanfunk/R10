@@ -1,26 +1,12 @@
 import React, { Component } from 'react';
 import About from './About';
+import { connect } from 'react-redux';
+import { fetchCodeOfConduct } from './../../redux/actions';
 
-export default class AboutContainer extends Component {
-
-  constructor() {
-    super();
-    this.state = {
-      codeConductData: [],
-      isLoading: true,
-    };
-  }
+class AboutContainer extends Component {
 
   componentDidMount() {
-
-    const endpoint = 'https://r10app-95fea.firebaseio.com/code_of_conduct.json';
-    fetch(endpoint)
-      // if fetch is successful, read our JSON out of the response
-      .then((response) => response.json())
-      .then((result) => {
-        this.setState({ codeConductData: result });
-      })
-      .catch(error => console.log(`Error fetching JSON: ${error}`));
+    this.props.fetchCodeOfConduct()
   }
 
   static route = {
@@ -30,9 +16,24 @@ export default class AboutContainer extends Component {
   }
 
   render() {
+    const codeOfConduct = this.props.codeOfConduct
+    console.log(codeOfConduct)
     return (
-      <About codeOfConducts={this.state.codeConductData}/>
+      <About codeOfConducts={codeOfConduct}/>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  codeOfConduct: state.codeOfConduct,
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchCodeOfConduct: () => {
+    dispatch(fetchCodeOfConduct());
+  },
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(AboutContainer);
 

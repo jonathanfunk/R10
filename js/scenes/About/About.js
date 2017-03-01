@@ -7,6 +7,7 @@ import {
   StyleSheet,
 } from 'react-native';
 
+
 const About = ({ codeOfConducts }) => (
   <ScrollView style={styles.aboutWrap}>
     <View style={styles.logoWrap}>
@@ -31,7 +32,7 @@ const About = ({ codeOfConducts }) => (
       ))}
     </View>
     <View style={styles.footer}>
-      <Text style={styles.footerText}>&#9400; RED Academy { new Date().getFullYear() }</Text>
+      <Text style={styles.footerText}>&#9400; RED Academy {new Date().getFullYear()}</Text>
     </View>
   </ScrollView>
 );
