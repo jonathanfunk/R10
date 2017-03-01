@@ -6,7 +6,12 @@ const Schedule = ({data}) => {
   return (
     <ListView
       dataSource={data}
-      renderRow={(data) => <View><Text>{data.title}</Text></View>}
+      renderRow={(data) => 
+        <View>
+          <Text>{data.title}</Text>
+          <Text>{data.location}</Text>
+        </View>
+      }
     />
   )
 }
