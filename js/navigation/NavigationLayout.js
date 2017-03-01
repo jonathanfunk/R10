@@ -19,7 +19,7 @@ export default class TabScreen extends Component {
         id="main"
         navigatorUID="main"
         initialTab="about-tab">
-         <TabItem
+        <TabItem
           id="about-tab"
           title="About"
           renderTitle={this._renderTitle}
@@ -31,6 +31,18 @@ export default class TabScreen extends Component {
             initialRoute={Router.getRoute('about')}
           />
         </TabItem>
+        <TabItem
+          id="schedule-tab"
+          title="Schedule"
+          renderTitle={this._renderTitle}
+          renderIcon={isSelected => this._renderIcon('ios-information-circle', isSelected)}
+        >
+          <StackNavigation
+            id="schedule"
+            navigatorUID="schedule"
+            initialRoute={Router.getRoute('schedule')}
+          />
+        </TabItem>
       </TabNavigation>
     );
   }
@@ -38,7 +50,7 @@ export default class TabScreen extends Component {
   _renderIcon(iconName, isSelected) {
     let color = isSelected ? 'white' : colors.mediumGrey;
     return (
-        <Icon name={iconName} size={32} color={color} />
+      <Icon name={iconName} size={32} color={color} />
     );
   }
 

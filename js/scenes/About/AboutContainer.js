@@ -17,7 +17,6 @@ class AboutContainer extends Component {
 
   render() {
     const codeOfConduct = this.props.codeOfConduct
-    console.log(codeOfConduct)
     return (
       <About codeOfConducts={codeOfConduct}/>
     );
