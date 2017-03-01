@@ -35,7 +35,7 @@ export default class TabScreen extends Component {
           id="schedule-tab"
           title="Schedule"
           renderTitle={this._renderTitle}
-          renderIcon={isSelected => this._renderIcon('ios-information-circle', isSelected)}
+          renderIcon={isSelected => this._renderIcon('ios-calendar', isSelected)}
         >
           <StackNavigation
             id="schedule"
