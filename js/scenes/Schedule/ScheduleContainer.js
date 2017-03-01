@@ -7,7 +7,7 @@ import { ListView } from 'react-native';
 class ScheduleContainer extends Component {
 
   componentDidMount() {
-    //this.props.fetchSession()
+    this.props.fetchSession()
   }
 
   static route = {
@@ -17,8 +17,11 @@ class ScheduleContainer extends Component {
   }
 
   render() {
+    const sessionData = this.props.dataSource
     return (
-      <Schedule />
+      <Schedule
+        data={sessionData}
+       />
     )
   }
 }

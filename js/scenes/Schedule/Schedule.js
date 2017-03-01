@@ -1,10 +1,14 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { ListView, View, Text } from 'react-native';
 
-const About = () => {
+
+const Schedule = ({data}) => {
   return (
-    <Text>Schedule</Text>
+    <ListView
+      dataSource={data}
+      renderRow={(data) => <View><Text>{data.title}</Text></View>}
+    />
   )
 }
 
-export default About;
+export default Schedule;

@@ -5,7 +5,6 @@ import {
   DONE_LOADING,
   UPDATE_CODE_OF_CONDUCT,
   UPDATE_SESSION,
-
 } from './actions';
 import { formatSessionData } from './../lib/dataFormatHelpers';
 
@@ -22,7 +21,7 @@ const codeOfConductReducer = (state = { loadingResource: false, items: [] }, act
   }
 };
 
-const sessionReducer = (state = { dataBlob: {}, sectionIds: [], rowIds: [] }, action) => {
+const sessionReducer = (state = { sessionData: {dataBlob: {}, sectionIds: [], rowIds: [] } }, action) => {
   switch (action.type) {
     case LOADING_RESOURCE:
       return { ...state, loadingResource: true }
@@ -30,7 +29,7 @@ const sessionReducer = (state = { dataBlob: {}, sectionIds: [], rowIds: [] }, ac
       return { ...state, loadingResource: false }
     case UPDATE_SESSION:
       const sessionData = formatSessionData(action.payload)
-      return [...state, sessionData];
+      return {...state, sessionData};
     default:
       return state;
   }
