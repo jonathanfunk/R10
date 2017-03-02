@@ -1,20 +1,4 @@
-import React, { Component } from 'react';
-import { Text, ViewStyleSheet } from 'react-native';
-
-class Session extends Component {
-
-  constructor() {
-    super();
-  }
-
-  render() {
-    return (
-      <View>
-        <Text>Session</Text>
-      </View>
-    );
-  }
-
-}
-
-export default Session;
+import SessionContainer from './SessionContainer';
+import Session from './Session';
+export { Session };
+export default SessionContainer;

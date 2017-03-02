@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
   ScrollView,
   View,
@@ -6,37 +6,41 @@ import {
   Image,
   StyleSheet,
 } from 'react-native';
-import { typography, colors } from './../../config/styles'
+import { typography, colors } from './../../config/styles';
+import Conduct from './../../components/Conduct'
 
 
-const About = ({ codeOfConduct }) => (
-  <ScrollView style={styles.aboutWrap}>
-    <View style={styles.logoWrap}>
-      <Image
-        style={styles.logo}
-        resizeMode={"contain"}
-        source={require('./../../assets/r10_logo.png')}
-      />
-    </View>
-    <View style={styles.aboutContent}>
-      <Text style={styles.paragraph}>R10 is a conference that focuses on just about any topic related to dev.</Text>
-      <Text style={styles.header}>Date & Venue</Text>
-      <Text style={styles.paragraph}>R10 is a conference will take place on Tuesday, June 27, 2017 in Vancouver, BC.</Text>
-      <Text style={styles.header}>Code of Conduct</Text>
-    </View>
-    <View>
-      {codeOfConduct.map((code, i) => (
-        <View key={i}>
-          <Text style={styles.codeTitle}>{code.title}</Text>
-          <Text style={styles.paragraph}>{code.description}</Text>
+class About extends Component {
+
+  render() {
+
+    return (
+      <ScrollView style={styles.aboutWrap}>
+        <View style={styles.logoWrap}>
+          <Image
+            style={styles.logo}
+            resizeMode={"contain"}
+            source={require('./../../assets/r10_logo.png')}
+          />
         </View>
-      ))}
-    </View>
-    <View style={styles.footer}>
-      <Text style={styles.footerText}>&#9400; RED Academy {new Date().getFullYear()}</Text>
-    </View>
-  </ScrollView>
-);
+        <View style={styles.aboutContent}>
+          <Text style={styles.paragraph}>R10 is a conference that focuses on just about any topic related to dev.</Text>
+          <Text style={styles.header}>Date & Venue</Text>
+          <Text style={styles.paragraph}>R10 is a conference will take place on Tuesday, June 27, 2017 in Vancouver, BC.</Text>
+          <Text style={styles.header}>Code of Conduct</Text>
+        </View>
+        <View>
+          {this.props.codeOfConduct.map((code, i) => (
+            <Conduct codeData={code} key={i}/>
+          ))}
+        </View>
+        <View style={styles.footer}>
+          <Text style={styles.footerText}>&#9400; RED Academy {new Date().getFullYear()}</Text>
+        </View>
+      </ScrollView>
+    )
+  }
+}
 
 About.propTypes = {
   codeOfConduct: PropTypes.array.isRequired,
@@ -88,4 +92,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default About
+export default About;
