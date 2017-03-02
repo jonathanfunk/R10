@@ -18,6 +18,7 @@ class ScheduleContainer extends Component {
 
   render() {
     const sessionData = this.props.dataSource
+    console.log(sessionData)
     return (
       <Schedule
         data={sessionData}

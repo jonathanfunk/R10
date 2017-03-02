@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     color: colors.mediumGrey,
   },
   paragraph: {
-    fontFamily: typography.fontMain,
+    fontFamily: typography.fontMainLight,
     marginBottom: 10,
   },
   codeTitle: {
