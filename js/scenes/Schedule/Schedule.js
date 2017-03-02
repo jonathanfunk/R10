@@ -3,7 +3,8 @@ import {
   ListView,
   View,
   Text,
-  StyleSheet
+  StyleSheet,
+  TouchableHighlight,
 } from 'react-native';
 import { typography, colors } from './../../config/styles';
 
@@ -38,10 +39,15 @@ const Schedule = ({data}) => {
       }
 
       renderRow={(data) =>
-        <View style={styles.row}>
-          <Text style={styles.title}>{data.title}</Text>
-          <Text style={styles.location}>{data.location}</Text>
-        </View>
+        <TouchableHighlight
+          onPress={() => { }}
+          activeOpacity={75 / 100}
+          underlayColor={colors.lightGrey}>
+          <View style={styles.row}>
+            <Text style={styles.title}>{data.title}</Text>
+            <Text style={styles.location}>{data.location}</Text>
+          </View>
+        </TouchableHighlight>
       }
     />
   )
