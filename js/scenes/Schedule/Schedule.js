@@ -7,6 +7,7 @@ import {
   TouchableHighlight,
 } from 'react-native';
 import { typography, colors } from './../../config/styles';
+import { goToSession } from './../../lib/navigationHelpers'
 
 const time = (timestamp) => {
   let d = new Date(timestamp * 1000);
@@ -40,7 +41,7 @@ const Schedule = ({data}) => {
 
       renderRow={(data) =>
         <TouchableHighlight
-          onPress={() => { }}
+          onPress={() => {}}
           activeOpacity={75 / 100}
           underlayColor={colors.lightGrey}>
           <View style={styles.row}>

@@ -20,18 +20,6 @@ export default class TabScreen extends Component {
         navigatorUID="main"
         initialTab="about-tab">
         <TabItem
-          id="about-tab"
-          title="About"
-          renderTitle={this._renderTitle}
-          renderIcon={isSelected => this._renderIcon('ios-information-circle', isSelected)}
-        >
-          <StackNavigation
-            id="about"
-            navigatorUID="about"
-            initialRoute={Router.getRoute('about')}
-          />
-        </TabItem>
-        <TabItem
           id="schedule-tab"
           title="Schedule"
           renderTitle={this._renderTitle}
@@ -41,6 +29,30 @@ export default class TabScreen extends Component {
             id="schedule"
             navigatorUID="schedule"
             initialRoute={Router.getRoute('schedule')}
+          />
+        </TabItem>
+        <TabItem
+          id="map-tab"
+          title="Map"
+          renderTitle={this._renderTitle}
+          renderIcon={isSelected => this._renderIcon('ios-map', isSelected)}
+        >
+          <StackNavigation
+            id="map"
+            navigatorUID="map"
+            initialRoute={Router.getRoute('map')}
+          />
+        </TabItem>
+        <TabItem
+          id="about-tab"
+          title="About"
+          renderTitle={this._renderTitle}
+          renderIcon={isSelected => this._renderIcon('ios-information-circle', isSelected)}
+        >
+          <StackNavigation
+            id="about"
+            navigatorUID="about"
+            initialRoute={Router.getRoute('about')}
           />
         </TabItem>
       </TabNavigation>
