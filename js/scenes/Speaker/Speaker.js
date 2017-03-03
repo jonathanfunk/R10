@@ -1,11 +1,19 @@
 import React from 'react';
 import { Text, View, Image } from 'react-native';
 
-const Speaker = () => {
+const Speaker = ({ speaker }) => {
 
   return (
 
-    <Text>Speaker</Text>
+    <View>
+      <Image
+        style={{ width: 300, height: 200, }}
+        resizeMode={"contain"}
+        source={{ uri: speaker.image }}
+      />
+      <Text>{speaker.name}</Text>
+      <Text>{speaker.bio}</Text>
+    </View>
 
   );
 }

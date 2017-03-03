@@ -5,32 +5,17 @@ import {
   Text,
   StyleSheet,
   TouchableHighlight,
+  Image
 } from 'react-native';
 import { typography, colors } from './../../config/styles';
 import { goToSession } from './../../lib/navigationHelpers';
 import { styles } from './styles';
-
-const timeHelper = (timestamp) => {
-  let d = new Date(timestamp * 1000);
-  let hh = d.getHours();
-  let h = hh;
-  let min = ('0' + d.getMinutes()).slice(-2);
-  let ampm = 'AM';
-
-  if (hh > 12) {
-    h = hh - 12;
-    ampm = 'PM';
-  } else if (hh === 12) {
-    h = 12;
-    ampm = 'PM';
-  } else if (hh == 0) {
-    h = 12;
-  }
-  return h + ':' + min + ' ' + ampm;
-}
+import { timeHelper } from './../../lib/timeHelper';
+import { Platform } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
-const Schedule = ({data}) => {
+const Schedule = ({ data }) => {
 
   return (
     <ListView
@@ -49,12 +34,18 @@ const Schedule = ({data}) => {
           <View style={styles.row}>
             <Text style={styles.title}>{data.title}</Text>
             <Text style={styles.location}>{data.location}</Text>
+            {Platform.OS === 'ios' &&
+              <Text>You'll only see me on iOS devices.</Text>
+            }
+            {Platform.Version === 23 &&
+              <Text>And I'm only on Android devices running Nougat.</Text>
+            }
           </View>
         </TouchableHighlight>
       }
     />
   )
-  
+
 }
 
 

@@ -10,8 +10,9 @@ class SpeakerContainer extends Component {
   }
 
   render() {
+    const speakerData = this.props.speakerData
     return (
-      <Speaker />
+      <Speaker speaker={speakerData} />
     );
   }
 }

@@ -6,13 +6,14 @@ import {
   TouchableHighlight
 } from 'react-native';
 import { goToSpeaker } from './../../lib/navigationHelpers';
-
+import { timeHelper } from './../../lib/timeHelper'
 
 const Session = ({ session, speaker }) => {
   return (
     <View>
       <Text>{session.location}</Text>
       <Text>{session.title}</Text>
+      <Text>{timeHelper(session.start_time)}</Text>
       <Text>{session.description}</Text>
       <Text>Presented by:</Text>
       <TouchableHighlight
