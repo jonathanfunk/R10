@@ -41,7 +41,7 @@ const Schedule = ({data}) => {
 
       renderRow={data =>
         <TouchableHighlight
-          onPress={() => goToSession('schedule', { data })}
+          onPress={() => { goToSession('schedule', data); }}
           activeOpacity={75 / 100}
           underlayColor={colors.lightGrey}>
           <View style={styles.row}>

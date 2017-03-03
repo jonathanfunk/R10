@@ -1,20 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Text, View } from 'react-native';
 
-class Session extends Component {
-
-  constructor() {
-    super();
-  }
-
-  render() {
-    return (
-      <View>
-        <Text>Session</Text>
-      </View>
-    );
-  }
-
+const Session = ({session, speaker}) => {
+  return (
+    <View>
+    <Text>{session.location}</Text>
+    <Text>{session.title}</Text>
+    <Text>{session.description}</Text>
+    <Text>Presented by:</Text>
+    <Text>Yep</Text>
+    </View>
+  )
 }
 
 export default Session;

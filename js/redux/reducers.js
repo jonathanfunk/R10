@@ -36,13 +36,13 @@ const sessionReducer = (state = { sessionData: {dataBlob: {}, sectionIds: [], ro
   }
 };
 
-const speakersReducer = (state = { loadingResource: false, items: [] }, action) => {
+const speakersReducer = (state = { loadingResource: false, items: {} }, action) => {
   switch (action.type) {
     case LOADING_RESOURCE:
       return { ...state, loadingResource: true }
     case DONE_LOADING:
       return { ...state, loadingResource: false }
-    case UPDATE_CODE_OF_CONDUCT:
+    case UPDATE_SPEAKERS:
       return { ...state, items: action.payload };
     default:
       return state;

@@ -6,8 +6,7 @@ import { fetchSpeakers } from './../../redux/actions';
 class SessionContainer extends Component {
 
   componentDidMount() {
-    const {sessionData} = this.props;
-    this.props.fetchSpeakers(sessionData.data.speakers)
+    this.props.fetchSpeakers(this.props.sessionData.speaker)
   }
 
   static route = {
@@ -17,10 +16,17 @@ class SessionContainer extends Component {
   }
 
   render() {
+    const sessionData = this.props.sessionData
+    const speakerData = this.props
+    console.log('session is...', sessionData)
+    console.log('speaker is...', speakerData)
 
-    console.log(this.props)
+
     return (
-      <Session />
+      <Session
+        session={sessionData}
+        speaker={speakerData}
+      />
     );
   }
 }

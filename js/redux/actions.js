@@ -10,7 +10,7 @@ export const DONE_LOADING = 'DONE_LOADING'
 
 export const updateCodeOfConduct = codeOfConduct => ({ type: UPDATE_CODE_OF_CONDUCT, payload: codeOfConduct });
 export const updateSession = session => ({ type: UPDATE_SESSION, payload: session });
-export const updateSpeaker = speaker => ({ type: UPDATE_SESSION, payload: speaker });
+export const updateSpeaker = speaker => ({ type: UPDATE_SPEAKERS, payload: speaker });
 export const loadResource = () => ({ type: LOADING_RESOURCE })//This will come in handy
 export const doneLoading = () => ({ type: DONE_LOADING })
 
@@ -45,8 +45,9 @@ export const fetchSession = () => {
 
 //SPEAKER
 export const fetchSpeakers = (id) => {
+  console.log('ID is...', id);
   return (dispatch) => {
-    const data = `https://r10app-95fea.firebaseio.com/speakers.json?orderBy="speaker_id"&equalTo="${id}"`
+    const data = `https://r10app-95fea.firebaseio.com/speakers.json?orderBy="speaker_id"&equalTo="${id}"`;
     fetch(data)
       .then((response) => response.json())
       .then((result) => {
