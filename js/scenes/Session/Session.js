@@ -8,7 +8,7 @@ const Session = ({session, speaker}) => {
     <Text>{session.title}</Text>
     <Text>{session.description}</Text>
     <Text>Presented by:</Text>
-    <Text>Yep</Text>
+    <Text>{speaker.name}</Text>
     </View>
   )
 }

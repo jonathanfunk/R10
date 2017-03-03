@@ -17,7 +17,7 @@ class SessionContainer extends Component {
 
   render() {
     const sessionData = this.props.sessionData
-    const speakerData = this.props
+    const speakerData = this.props.speakers
     console.log('session is...', sessionData)
     console.log('speaker is...', speakerData)
 

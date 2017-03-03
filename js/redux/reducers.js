@@ -8,6 +8,7 @@ import {
   UPDATE_SPEAKERS
 } from './actions';
 import { formatSessionData } from './../lib/dataFormatHelpers';
+import { formatDataObject } from './../lib/dataFormatHelpers';
 
 const codeOfConductReducer = (state = { loadingResource: false, items: [] }, action) => {
   switch (action.type) {
@@ -43,7 +44,8 @@ const speakersReducer = (state = { loadingResource: false, items: {} }, action) 
     case DONE_LOADING:
       return { ...state, loadingResource: false }
     case UPDATE_SPEAKERS:
-      return { ...state, items: action.payload };
+      const formattedData = formatDataObject(action.payload)
+      return { ...state, items: formattedData };
     default:
       return state;
   }
