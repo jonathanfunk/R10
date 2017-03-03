@@ -7,9 +7,10 @@ import {
   TouchableHighlight,
 } from 'react-native';
 import { typography, colors } from './../../config/styles';
-import { goToSession } from './../../lib/navigationHelpers'
+import { goToSession } from './../../lib/navigationHelpers';
+import { styles } from './styles';
 
-const time = (timestamp) => {
+const timeHelper = (timestamp) => {
   let d = new Date(timestamp * 1000);
   let hh = d.getHours();
   let h = hh;
@@ -30,12 +31,13 @@ const time = (timestamp) => {
 
 
 const Schedule = ({data}) => {
+
   return (
     <ListView
       dataSource={data}
       renderSectionHeader={(sectionData, startTime) =>
         <View style={styles.header}>
-          <Text style={styles.headerText}>{time(startTime)}</Text>
+          <Text style={styles.headerText}>{timeHelper(startTime)}</Text>
         </View>
       }
 
@@ -52,34 +54,8 @@ const Schedule = ({data}) => {
       }
     />
   )
+  
 }
 
-const styles = StyleSheet.create({
-  header: {
-    height: 25,
-    backgroundColor: colors.lightGrey,
-    paddingLeft: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  headerText: {
-    fontFamily: typography.fontMain,
-    fontSize: 12,
-  },
-  row: {
-    padding: 10,
-    borderBottomColor: colors.lightGrey,
-    borderBottomWidth: 1,
-  },
-  title: {
-    fontFamily: typography.fontMain,
-    marginBottom: 5,
-  },
-  location: {
-    fontFamily: typography.fontMainLight,
-    fontSize: 12,
-    color: colors.mediumGrey,
-  },
-});
 
 export default Schedule;

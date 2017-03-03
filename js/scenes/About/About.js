@@ -4,15 +4,13 @@ import {
   View,
   Text,
   Image,
-  StyleSheet,
 } from 'react-native';
-import { typography, colors } from './../../config/styles';
 import Conduct from './../../components/Conduct'
+import { styles } from './styles';
 
 
-class About extends Component {
+const About = ({ codeOfConduct }) => {
 
-  render() {
 
     return (
       <ScrollView style={styles.aboutWrap}>
@@ -30,7 +28,7 @@ class About extends Component {
           <Text style={styles.header}>Code of Conduct</Text>
         </View>
         <View>
-          {this.props.codeOfConduct.map((code, i) => (
+          {codeOfConduct.map((code, i) => (
             <Conduct codeData={code} key={i}/>
           ))}
         </View>
@@ -39,57 +37,10 @@ class About extends Component {
         </View>
       </ScrollView>
     )
-  }
 }
 
 About.propTypes = {
   codeOfConduct: PropTypes.array.isRequired,
 }
-
-const styles = StyleSheet.create({
-  aboutWrap: {
-    padding: 10,
-  },
-  logo: {
-    width: 200,
-  },
-  logoWrap: {
-    height: 75,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderBottomColor: colors.lightGrey,
-    borderBottomWidth: 1,
-  },
-  aboutContent: {
-    paddingTop: 10,
-  },
-  header: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 10,
-    fontFamily: typography.fontMain,
-    color: colors.mediumGrey,
-  },
-  paragraph: {
-    fontFamily: typography.fontMainLight,
-    marginBottom: 10,
-  },
-  codeTitle: {
-    fontFamily: typography.fontMain,
-    color: colors.purple,
-    marginBottom: 10,
-  },
-  footer: {
-    borderTopColor: colors.lightGrey,
-    borderTopWidth: 1,
-    paddingTop: 20,
-    paddingBottom: 20,
-  },
-  footerText: {
-    fontFamily: typography.fontMainLight,
-  }
-});
-
 
 export default About;
