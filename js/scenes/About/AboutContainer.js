@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import About from './About';
 import { ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
-import { fetchCodeOfConduct } from './../../redux/actions';
+import { fetchCodeOfConduct } from './../../redux/actions/codeOfConductActions';
 
 class AboutContainer extends Component {
 

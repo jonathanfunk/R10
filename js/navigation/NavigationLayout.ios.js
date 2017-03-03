@@ -32,6 +32,18 @@ export default class TabScreen extends Component {
           />
         </TabItem>
         <TabItem
+          id="faves-tab"
+          title="Faves"
+          renderTitle={this._renderTitle}
+          renderIcon={isSelected => this._renderIcon('ios-heart', isSelected)}
+        >
+          <StackNavigation
+            id="faves"
+            navigatorUID="faves"
+            initialRoute={Router.getRoute('faves')}
+          />
+        </TabItem>
+        <TabItem
           id="map-tab"
           title="Map"
           renderTitle={this._renderTitle}

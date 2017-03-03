@@ -1,12 +1,9 @@
 import { NavigationReducer } from '@exponent/ex-navigation';
 import { combineReducers } from 'redux';
-import {
-  LOADING_RESOURCE,
-  DONE_LOADING,
-  UPDATE_CODE_OF_CONDUCT,
-  UPDATE_SESSION,
-  UPDATE_SPEAKERS
-} from './actions';
+import { LOADING_RESOURCE, DONE_LOADING } from './actions/loadingActions';
+import { UPDATE_SPEAKERS } from './actions/speakerActions';
+import {  UPDATE_CODE_OF_CONDUCT } from './actions/codeOfConductActions';
+import {  UPDATE_SESSION } from './actions/sessionActions';
 import { formatSessionData } from './../lib/dataFormatHelpers';
 import { formatDataObject } from './../lib/dataFormatHelpers';
 

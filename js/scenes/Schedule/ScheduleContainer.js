@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Schedule from './Schedule';
 import { connect } from 'react-redux';
-import { fetchSession } from './../../redux/actions';
+import { fetchSession } from './../../redux/actions/sessionActions';
 import { ListView } from 'react-native';
 
 class ScheduleContainer extends Component {

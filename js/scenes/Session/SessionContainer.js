@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Session from './Session';
 import { connect } from 'react-redux';
-import { fetchSpeakers } from './../../redux/actions';
+import { fetchSpeakers } from './../../redux/actions/speakerActions';
 
 class SessionContainer extends Component {
 
