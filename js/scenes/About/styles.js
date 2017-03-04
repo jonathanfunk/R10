@@ -26,10 +26,6 @@ export const styles = StyleSheet.create({
     fontFamily: typography.fontMain,
     color: colors.mediumGrey,
   },
-  paragraph: {
-    fontFamily: typography.fontMainLight,
-    marginBottom: 10,
-  },
   codeTitle: {
     fontFamily: typography.fontMain,
     color: colors.purple,

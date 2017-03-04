@@ -41,29 +41,35 @@ class Session extends Component {
 
     return (
 
-      <View>
-        <Text>{this.props.session.location}</Text>
-        {Platform.OS === 'ios' &&
-          <Icon name='ios-heart' size={16} color={this.state.heartColor} />
-        }
-        {Platform.Version === 23 &&
-          <Icon name='md-heart' size={16} color={this.state.heartColor} />
-        }
-        <Text>{this.props.session.title}</Text>
-        <Text>{timeHelper(this.props.session.start_time)}</Text>
-        <Text>{this.props.session.description}</Text>
-        <Text>Presented by:</Text>
-        <TouchableHighlight
-          onPress={() => { goToSpeaker(this.props.speaker); }}
-          activeOpacity={75 / 100}
-          underlayColor={'grey'}>
-          <Text>{this.props.speaker.name}</Text>
-        </TouchableHighlight>
-        <Image
-          style={{ width: 300, height: 200, }}
-          resizeMode={"contain"}
-          source={{ uri: this.props.speaker.image }}
-        />
+      <View style={styles.wrap}>
+        <View style={styles.locationWrap}>
+          <Text style={styles.greyHeader}>{this.props.session.location}</Text>
+          {Platform.OS === 'ios' &&
+            <Icon name='ios-heart' size={16} color={this.state.heartColor} />
+          }
+          {Platform.Version === 23 &&
+            <Icon name='md-heart' size={16} color={this.state.heartColor} />
+          }
+        </View>
+        <Text style={styles.headerText}>{this.props.session.title}</Text>
+        <Text style={styles.time}>{timeHelper(this.props.session.start_time)}</Text>
+        <Text style={styles.description}>{this.props.session.description}</Text>
+        <Text style={styles.greyHeader}>Presented by:</Text>
+        <View style={styles.speakerWrap}>
+          <TouchableHighlight
+            onPress={() => { goToSpeaker(this.props.speaker); }}
+            activeOpacity={75 / 100}
+            underlayColor={'grey'}>
+            <View style={styles.speakerWrap}>
+              <Text>{this.props.speaker.name}</Text>
+              <Image
+                style={{ width: 300, height: 200, }}
+                resizeMode={"contain"}
+                source={{ uri: this.props.speaker.image }}
+              />
+            </View>
+          </TouchableHighlight>
+        </View>
         <TouchableHighlight
           onPress={() => { createFavorite(this.props.session.session_id) }}
           activeOpacity={75 / 100}>

@@ -30,8 +30,5 @@ export const styles = StyleSheet.create({
     fontFamily: typography.fontMainLight,
     fontSize: 12,
     color: colors.mediumGrey,
-  },
-  button: {
-    backgroundColor: colors.purple,
   }
 });

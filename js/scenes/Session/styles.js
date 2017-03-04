@@ -2,16 +2,13 @@ import { StyleSheet } from 'react-native';
 import { typography, colors } from './../../config/styles';
 
 export const styles = StyleSheet.create({
-  header: {
-    height: 25,
-    backgroundColor: colors.lightGrey,
-    paddingLeft: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
+  wrap: {
+    padding: 10
   },
   headerText: {
     fontFamily: typography.fontMain,
-    fontSize: 12,
+    fontSize: 24,
+    marginBottom: 10,
   },
   row: {
     padding: 10,
@@ -22,10 +19,25 @@ export const styles = StyleSheet.create({
     fontFamily: typography.fontMain,
     marginBottom: 5,
   },
-  location: {
+  time: {
+    fontFamily: typography.fontMain,
+    color: colors.red,
+    marginBottom: 10,
+  },
+  description: {
     fontFamily: typography.fontMainLight,
-    fontSize: 12,
+    marginBottom: 10,
+    fontSize: 16,
+    lineHeight: 24,
+  },
+  locationWrap: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  greyHeader: {
+    fontFamily: typography.fontMain,
     color: colors.mediumGrey,
+    marginBottom: 10,
   },
   button: {
     backgroundColor: colors.purple,
