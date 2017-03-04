@@ -18,8 +18,9 @@ const defaultRouteConfig = {
     },
     renderBackground: () => 
       <LinearGradient
-        start={{ x: 0.0, y: 1.0 }} end={{ x: 0.5, y: 1.0 }}
-        colors={[colors.purple, colors.blue]}
+        start={{ x: 0, y: 1 }} end={{ x: 1, y: 0 }}
+        locations={[0,1]}
+        colors={[colors.red, colors.purple]}
         style={styles.linearGradient} />
   }
 }

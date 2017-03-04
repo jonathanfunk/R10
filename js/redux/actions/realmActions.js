@@ -19,7 +19,7 @@ export const fetchFaves = () => {
     fetch(data)
       .then((response) => response.json())
       .then((result) => {
-        const filtered = result.filter(id => queryFaves().include(id.session_id))
+        const filtered = result.filter(x => queryFaves().include(x.session_id))
         dispatch(postFaves(filtered));
       })
       .catch(error => console.log(`Error fetching JSON: ${error}`));

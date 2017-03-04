@@ -12,11 +12,9 @@ const Fave = {
 
 export const realm = new Realm({ schema: [Fave] });
 
-
 //Query faves THIS
 export const queryFaves = () => {
-  console.log(realm.objects('Fave'))
-  return realm.objects('Fave').map((fave) => fave.id)
+  return realm.objects('Fave').map(fave => fave.id)
 }
 
 //Get faves
