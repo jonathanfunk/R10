@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Session from './Session';
 import { connect } from 'react-redux';
+import { ActivityIndicator } from 'react-native';
 import { fetchSpeakers } from './../../redux/actions/speakerActions';
 
 class SessionContainer extends Component {
@@ -18,19 +19,25 @@ class SessionContainer extends Component {
   render() {
     const sessionData = this.props.sessionData
     const speakerData = this.props.speakers
+    const loading = this.props.isLoading;
 
-    console.log(sessionData)
-    return (
-      <Session
-        session={sessionData}
-        speaker={speakerData}
-      />
-    );
+    if (loading) {
+      return (
+        <ActivityIndicator animating={true} size="small" color="black" />
+      );
+    } else {
+      return (
+        <Session
+          session={sessionData}
+          speaker={speakerData}
+        />
+      );
+    }
   }
 }
 
 const mapStateToProps = state => ({
-  loading: state.speakers.loadingResource,
+  isLoading: state.speakers.loadingResource,
   speakers: state.speakers.items,
 });
 

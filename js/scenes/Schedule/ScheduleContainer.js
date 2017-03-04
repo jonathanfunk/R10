@@ -22,6 +22,7 @@ class ScheduleContainer extends Component {
   render() {
     const sessionData = this.props.dataSource
     const loading = this.props.isLoading;
+    
     if (loading) {
       return (
         <ActivityIndicator animating={true} size="small" color="black" />
