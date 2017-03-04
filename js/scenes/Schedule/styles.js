@@ -22,6 +22,10 @@ export const styles = StyleSheet.create({
     fontFamily: typography.fontMain,
     marginBottom: 5,
   },
+  locationWrap: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
   location: {
     fontFamily: typography.fontMainLight,
     fontSize: 12,

@@ -16,10 +16,10 @@ const defaultRouteConfig = {
     titleStyle: {
       color: 'white'
     },
-    renderBackground: () => 
+    renderBackground: () =>
       <LinearGradient
         start={{ x: 0, y: 1 }} end={{ x: 1, y: 0 }}
-        locations={[0,1]}
+        locations={[0, 1]}
         colors={[colors.red, colors.purple]}
         style={styles.linearGradient} />
   }
@@ -58,6 +58,7 @@ export default class TabScreen extends Component {
             id="faves"
             navigatorUID="faves"
             initialRoute={Router.getRoute('faves')}
+            defaultRouteConfig={defaultRouteConfig}
           />
         </TabItem>
         <TabItem
@@ -70,6 +71,8 @@ export default class TabScreen extends Component {
             id="map"
             navigatorUID="map"
             initialRoute={Router.getRoute('map')}
+            defaultRouteConfig={defaultRouteConfig}
+
           />
         </TabItem>
         <TabItem
@@ -82,6 +85,8 @@ export default class TabScreen extends Component {
             id="about"
             navigatorUID="about"
             initialRoute={Router.getRoute('about')}
+            defaultRouteConfig={defaultRouteConfig}
+
           />
         </TabItem>
       </TabNavigation>

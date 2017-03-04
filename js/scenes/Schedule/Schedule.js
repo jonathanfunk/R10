@@ -34,13 +34,15 @@ const Schedule = ({ data }) => {
           underlayColor={colors.lightGrey}>
           <View>
             <Text style={styles.title}>{data.title}</Text>
-            <Text style={styles.location}>{data.location}</Text>
-            {Platform.OS === 'ios' &&
-              <Icon name='ios-heart' size={16} color='red' />
-            }
-            {Platform.Version === 23 &&
-              <Icon name='md-heart' size={16} color='red' />
-            }
+            <View style={styles.locationWrap}>
+              <Text style={styles.location}>{data.location}</Text>
+              {Platform.OS === 'ios' &&
+                <Icon name='ios-heart' size={12} color={colors.red} />
+              }
+              {Platform.Version === 23 &&
+                <Icon name='md-heart' size={12} color={colors.red} />
+              }
+            </View>
           </View>
         </TouchableHighlight>
         </View>

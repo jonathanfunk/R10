@@ -19,6 +19,7 @@ class AboutContainer extends Component {
   render() {
     const codeOfConduct = this.props.codeOfConduct;
     const loading = this.props.loading;
+    
     if (loading) {
       return (
         <ActivityIndicator animating={true} size="small" color="black" />

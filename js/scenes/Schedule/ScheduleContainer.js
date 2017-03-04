@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Schedule from './Schedule';
 import { connect } from 'react-redux';
+import { ActivityIndicator } from 'react-native';
 import { fetchSession } from './../../redux/actions/sessionActions';
 import { ListView } from 'react-native';
 
@@ -20,11 +21,18 @@ class ScheduleContainer extends Component {
 
   render() {
     const sessionData = this.props.dataSource
-    return (
-      <Schedule
-        data={sessionData}
-       />
-    )
+    const loading = this.props.isLoading;
+    if (loading) {
+      return (
+        <ActivityIndicator animating={true} size="small" color="black" />
+      );
+    } else {
+      return (
+        <Schedule
+          data={sessionData}
+        />
+      )
+    }
   }
 }
 
@@ -48,7 +56,7 @@ const mapStateToProps = state => ({
     state.session.sessionData.sectionIds,
     state.session.sessionData.rowIds,
   ),
-  // isLoading: state.sessionsisLoading,
+  isLoading: state.session.loadingResource,
   //session: state.session,
 });
 
