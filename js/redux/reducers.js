@@ -2,8 +2,9 @@ import { NavigationReducer } from '@exponent/ex-navigation';
 import { combineReducers } from 'redux';
 import { LOADING_RESOURCE, DONE_LOADING } from './actions/loadingActions';
 import { UPDATE_SPEAKERS } from './actions/speakerActions';
-import {  UPDATE_CODE_OF_CONDUCT } from './actions/codeOfConductActions';
-import {  UPDATE_SESSION } from './actions/sessionActions';
+import { UPDATE_CODE_OF_CONDUCT } from './actions/codeOfConductActions';
+import { UPDATE_SESSION } from './actions/sessionActions';
+import { POST_FAVES } from './actions/realmActions';
 import { formatSessionData } from './../lib/dataFormatHelpers';
 import { formatDataObject } from './../lib/dataFormatHelpers';
 
@@ -48,11 +49,25 @@ const speakersReducer = (state = { loadingResource: false, items: {} }, action) 
   }
 };
 
+const favesReducer = (state = { loadingResource: false, items: [] }, action) => {
+  switch (action.type) {
+    case LOADING_RESOURCE:
+      return { ...state, loadingResource: true }
+    case DONE_LOADING:
+      return { ...state, loadingResource: false }
+    case POST_FAVES:
+      return { ...state, items: action.payload };
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   navigation: NavigationReducer,
   codeOfConduct: codeOfConductReducer,
   session: sessionReducer,
-  speakers: speakersReducer
+  speakers: speakersReducer,
+  faves: favesReducer,
   // other reducers
 })
 

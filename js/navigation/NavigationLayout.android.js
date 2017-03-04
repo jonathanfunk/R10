@@ -18,7 +18,7 @@ export default class TabScreen extends Component {
         id="main"
         navigatorUID="main"
         drawerWidth={300}
-        initialItem="about-tab"
+        initialItem="schedule-tab"
       >
 
         <DrawerNavigationItem

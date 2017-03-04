@@ -27,21 +27,23 @@ const Schedule = ({ data }) => {
       }
 
       renderRow={data =>
+        <View style={styles.row}>
         <TouchableHighlight
           onPress={() => { goToSession('schedule', data); }}
           activeOpacity={75 / 100}
           underlayColor={colors.lightGrey}>
-          <View style={styles.row}>
+          <View>
             <Text style={styles.title}>{data.title}</Text>
             <Text style={styles.location}>{data.location}</Text>
             {Platform.OS === 'ios' &&
-              <Text>You'll only see me on iOS devices.</Text>
+              <Icon name='ios-heart' size={16} color='red' />
             }
             {Platform.Version === 23 &&
-              <Text>And I'm only on Android devices running Nougat.</Text>
+              <Icon name='md-heart' size={16} color='red' />
             }
           </View>
         </TouchableHighlight>
+        </View>
       }
     />
   )

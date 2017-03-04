@@ -8,6 +8,21 @@ import {
 } from '@exponent/ex-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { colors, typography } from '../config/styles';
+import LinearGradient from 'react-native-linear-gradient';
+import { styles } from './styles'
+
+const defaultRouteConfig = {
+  navigationBar: {
+    titleStyle: {
+      color: 'white'
+    },
+    renderBackground: () => 
+      <LinearGradient
+        start={{ x: 0.0, y: 1.0 }} end={{ x: 0.5, y: 1.0 }}
+        colors={[colors.purple, colors.blue]}
+        style={styles.linearGradient} />
+  }
+}
 
 export default class TabScreen extends Component {
 
@@ -18,7 +33,7 @@ export default class TabScreen extends Component {
         tabBarColor="black"
         id="main"
         navigatorUID="main"
-        initialTab="about-tab">
+        initialTab="schedule-tab">
         <TabItem
           id="schedule-tab"
           title="Schedule"
@@ -29,6 +44,7 @@ export default class TabScreen extends Component {
             id="schedule"
             navigatorUID="schedule"
             initialRoute={Router.getRoute('schedule')}
+            defaultRouteConfig={defaultRouteConfig}
           />
         </TabItem>
         <TabItem
