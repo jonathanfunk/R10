@@ -17,7 +17,6 @@ class Conduct extends Component {
     this.state = {
       expanded: false,
       rotateValue: new Animated.Value(0),
-      expandedText: "+"
     }
   }
 
@@ -50,7 +49,7 @@ class Conduct extends Component {
           onPress={this.onPress}
         >
           <View style={styles.codeWrap}>
-            <Animated.Text style={[styles.expanded, animationStyles]}>{this.state.expandedText}</Animated.Text>
+            <Animated.Text style={[styles.expanded, animationStyles]}>{this.state.expanded ? '-' : '+'}</Animated.Text>
             <Text style={styles.codeTitle}>{this.props.codeData.title}</Text>
           </View>
         </TouchableOpacity>
