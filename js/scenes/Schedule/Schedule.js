@@ -13,6 +13,19 @@ import { styles } from './styles';
 import { timeHelper } from './../../lib/timeHelper';
 import { Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { queryFaves } from './../../config/model'
+
+const queried = queryFaves();
+
+console.log(queried)
+
+const heartColor = (id) => {
+  if(queried.includes(id)){
+    return colors.red;
+  } else {
+    return 'white'
+  }
+}
 
 
 const Schedule = ({ data }) => {
@@ -36,10 +49,10 @@ const Schedule = ({ data }) => {
             <View style={styles.locationWrap}>
               <Text style={styles.location}>{data.location}</Text>
               {Platform.OS === 'ios' &&
-                <Icon name='ios-heart' size={12} color={colors.red} />
+                <Icon name='ios-heart' size={12} color={heartColor(data.session_id)} />
               }
               {Platform.Version === 23 &&
-                <Icon name='md-heart' size={12} color={colors.red} />
+                <Icon name='md-heart' size={12} color={heartColor(data.session_id)} />
               }
             </View>
           </View>

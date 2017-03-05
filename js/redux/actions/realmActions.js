@@ -1,8 +1,6 @@
 import { loadResource, doneLoading } from './loadingActions';
 import { queryFaves } from '../../config/model'
 
-console.log('query faves is...', queryFaves())
-
 export const POST_FAVES = 'POST_FAVES';
 export const ADD_FAVES = 'ADD_FAVES';
 export const DELETE_FAVES = 'DELETE_FAVES';
