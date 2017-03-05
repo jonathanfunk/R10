@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Faves from './Faves';
 import { connect } from 'react-redux';
+import { ActivityIndicator } from 'react-native';
 import { fetchFaves } from './../../redux/actions/realmActions';
+import { ListView } from 'react-native';
 
 class FavesContainer extends Component {
 
@@ -16,19 +18,25 @@ class FavesContainer extends Component {
   }
 
   render() {
-    const FavesData = this.props
+    const favesData = this.props.dataSource
+    const loading = this.props.isLoading;
 
-    console.log('faves is...', FavesData)
-    return (
-      <Faves />
-    );
+    if (loading) {
+      return (
+        <ActivityIndicator animating={true} size="small" color="black" />
+      );
+    } else {
+      return (
+        <Faves data={favesData} />
+      );
+    }
   }
 }
 
-const mapStateToProps = state => ({
-  loading: state.faves.loadingResource,
-  faves: state.faves.items,
-});
+const dataSource = new ListView.DataSource({
+  rowHasChanged: (r1, r2) => r1 !== r2,
+  sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
+})
 
 const mapDispatchToProps = dispatch => ({
   fetchFaves: () => {
@@ -36,6 +44,14 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
+const mapStateToProps = state => ({
+  dataSource: dataSource.cloneWithRowsAndSections(
+    state.faves.sessionData.dataBlob,
+    state.faves.sessionData.sectionIds,
+    state.faves.sessionData.rowIds,
+  ),
+  isLoading: state.session.loadingResource,
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(FavesContainer);
 

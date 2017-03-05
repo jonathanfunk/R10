@@ -49,14 +49,15 @@ const speakersReducer = (state = { loadingResource: false, items: {} }, action) 
   }
 };
 
-const favesReducer = (state = { loadingResource: false, items: [] }, action) => {
+const favesReducer = (state = { sessionData: {dataBlob: {}, sectionIds: [], rowIds: [] } }, action) => {
   switch (action.type) {
     case LOADING_RESOURCE:
       return { ...state, loadingResource: true }
     case DONE_LOADING:
       return { ...state, loadingResource: false }
     case POST_FAVES:
-      return { ...state, items: action.payload };
+      const sessionData = formatSessionData(action.payload)
+      return { ...state, sessionData };
     default:
       return state;
   }

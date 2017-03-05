@@ -58,7 +58,6 @@ const mapStateToProps = state => ({
     state.session.sessionData.rowIds,
   ),
   isLoading: state.session.loadingResource,
-  //session: state.session,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ScheduleContainer);
