@@ -55,26 +55,28 @@ class Session extends Component {
         <Text style={styles.time}>{timeHelper(this.props.session.start_time)}</Text>
         <Text style={styles.description}>{this.props.session.description}</Text>
         <Text style={styles.greyHeader}>Presented by:</Text>
-        <View style={styles.speakerWrap}>
+        <View style={styles.speakerLink}>
           <TouchableHighlight
             onPress={() => { goToSpeaker(this.props.speaker); }}
             activeOpacity={75 / 100}
             underlayColor={'grey'}>
             <View style={styles.speakerWrap}>
-              <Text>{this.props.speaker.name}</Text>
               <Image
-                style={{ width: 300, height: 200, }}
+                style={styles.speakerImage}
                 resizeMode={"contain"}
                 source={{ uri: this.props.speaker.image }}
               />
+              <Text>{this.props.speaker.name}</Text>
             </View>
           </TouchableHighlight>
         </View>
         <TouchableHighlight
+          style={{alignItems: 'center'}}
           onPress={() => { createFavorite(this.props.session.session_id) }}
-          activeOpacity={75 / 100}>
+          activeOpacity={75 / 100}
+          underlayColor='white'>
           <View style={styles.button}>
-            <Text>{this.state.favedText}</Text>
+            <Text style={styles.speakerText}>{this.state.favedText}</Text>
           </View>
         </TouchableHighlight>
       </View>

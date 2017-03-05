@@ -10,11 +10,6 @@ export const styles = StyleSheet.create({
     fontSize: 24,
     marginBottom: 10,
   },
-  row: {
-    padding: 10,
-    borderBottomColor: colors.lightGrey,
-    borderBottomWidth: 1,
-  },
   title: {
     fontFamily: typography.fontMain,
     marginBottom: 5,
@@ -39,7 +34,35 @@ export const styles = StyleSheet.create({
     color: colors.mediumGrey,
     marginBottom: 10,
   },
+  speakerLink: {
+    paddingBottom: 20,
+    borderBottomColor: colors.lightGrey,
+    borderBottomWidth: 1,
+    marginBottom: 20,
+
+  },
+  speakerWrap: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  speakerImage: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    marginRight: 10,
+  },
+  speakerText: {
+    fontFamily: typography.fontMain,
+    color: 'white',
+  },
   button: {
+    height: 40,
+    width: 200,
+    borderRadius: 20,
+    overflow: 'hidden',
     backgroundColor: colors.purple,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   }
 });
