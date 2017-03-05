@@ -3,7 +3,7 @@ import {
   Text,
   View,
   Image,
-  TouchableHighlight
+  TouchableOpacity
 } from 'react-native';
 import { goToSpeaker } from './../../lib/navigationHelpers';
 import { styles } from './styles';
@@ -56,10 +56,9 @@ class Session extends Component {
         <Text style={styles.description}>{this.props.session.description}</Text>
         <Text style={styles.greyHeader}>Presented by:</Text>
         <View style={styles.speakerLink}>
-          <TouchableHighlight
+          <TouchableOpacity
             onPress={() => { goToSpeaker(this.props.speaker); }}
-            activeOpacity={75 / 100}
-            underlayColor={'grey'}>
+            activeOpacity={75 / 100}>
             <View style={styles.speakerWrap}>
               <Image
                 style={styles.speakerImage}
@@ -68,17 +67,16 @@ class Session extends Component {
               />
               <Text>{this.props.speaker.name}</Text>
             </View>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </View>
-        <TouchableHighlight
+        <TouchableOpacity
           style={{alignItems: 'center'}}
           onPress={() => { createFavorite(this.props.session.session_id) }}
-          activeOpacity={75 / 100}
-          underlayColor='white'>
+          activeOpacity={75 / 100}>
           <View style={styles.button}>
-            <Text style={styles.speakerText}>{this.state.favedText}</Text>
+            <Text style={styles.buttonText}>{this.state.favedText}</Text>
           </View>
-        </TouchableHighlight>
+        </TouchableOpacity>
       </View>
     )
   }

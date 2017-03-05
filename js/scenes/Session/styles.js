@@ -51,7 +51,7 @@ export const styles = StyleSheet.create({
     borderRadius: 25,
     marginRight: 10,
   },
-  speakerText: {
+  buttonText: {
     fontFamily: typography.fontMain,
     color: 'white',
   },

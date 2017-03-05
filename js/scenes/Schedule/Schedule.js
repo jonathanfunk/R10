@@ -4,7 +4,7 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableHighlight,
+  TouchableOpacity,
   Image
 } from 'react-native';
 import { typography, colors } from './../../config/styles';
@@ -28,10 +28,9 @@ const Schedule = ({ data }) => {
 
       renderRow={data =>
         <View style={styles.row}>
-        <TouchableHighlight
+        <TouchableOpacity
           onPress={() => { goToSession('schedule', data); }}
-          activeOpacity={75 / 100}
-          underlayColor={colors.lightGrey}>
+          activeOpacity={75 / 100}>
           <View>
             <Text style={styles.title}>{data.title}</Text>
             <View style={styles.locationWrap}>
@@ -44,7 +43,7 @@ const Schedule = ({ data }) => {
               }
             </View>
           </View>
-        </TouchableHighlight>
+        </TouchableOpacity>
         </View>
       }
     />
