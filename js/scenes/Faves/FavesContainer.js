@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { ActivityIndicator } from 'react-native';
 import { fetchFaves } from './../../redux/actions/realmActions';
 import { ListView } from 'react-native';
+import { loadingStyle } from './../../config/styles'
 
 class FavesContainer extends Component {
 
@@ -23,7 +24,12 @@ class FavesContainer extends Component {
 
     if (loading) {
       return (
-        <ActivityIndicator animating={true} size="small" color="black" />
+        <ActivityIndicator
+          animating={true}
+          size="small"
+          color="black"
+          style={loadingStyle.centered}
+        />
       );
     } else {
       return (

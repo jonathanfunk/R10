@@ -3,7 +3,7 @@ import Session from './Session';
 import { connect } from 'react-redux';
 import { ActivityIndicator } from 'react-native';
 import { fetchSpeakers } from './../../redux/actions/speakerActions';
-import { loadingIndicator } from './../../config/styles'
+import { loadingStyle } from './../../config/styles'
 
 class SessionContainer extends Component {
 
@@ -24,7 +24,12 @@ class SessionContainer extends Component {
 
     if (loading) {
       return (
-        <ActivityIndicator animating={true} size="small" color="black" />
+        <ActivityIndicator
+          animating={true}
+          size="small"
+          color="black"
+          style={loadingStyle.centered}
+        />
       );
     } else {
       return (

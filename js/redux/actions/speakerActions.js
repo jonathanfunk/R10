@@ -7,7 +7,6 @@ export const updateSpeaker = speaker => ({ type: UPDATE_SPEAKERS, payload: speak
 
 //Fetch Speakers Thunk
 export const fetchSpeakers = (id) => {
-  console.log('ID is...', id);
   return (dispatch) => {
     dispatch(loadResource())
     const data = `https://r10app-95fea.firebaseio.com/speakers.json?orderBy="speaker_id"&equalTo="${id}"`;

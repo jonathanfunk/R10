@@ -1,4 +1,6 @@
-import { Platform } from 'react-native';
+import { Platform, StyleSheet, Dimensions } from 'react-native';
+
+const windowHeight = Dimensions.get('window').height;
 
 export const colors = {
   mediumGrey: '#999999',
@@ -20,3 +22,9 @@ export const typography = {
     },
   }),
 }
+
+export const loadingStyle = StyleSheet.create({
+  centered: {
+    marginTop: windowHeight/2,
+  },
+});

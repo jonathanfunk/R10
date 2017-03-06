@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { ActivityIndicator } from 'react-native';
 import { fetchSession } from './../../redux/actions/sessionActions';
 import { ListView } from 'react-native';
-
+import { loadingStyle } from './../../config/styles'
 
 class ScheduleContainer extends Component {
 
@@ -22,10 +22,15 @@ class ScheduleContainer extends Component {
   render() {
     const sessionData = this.props.dataSource
     const loading = this.props.isLoading;
-    
+
     if (loading) {
       return (
-        <ActivityIndicator animating={true} size="small" color="black" />
+        <ActivityIndicator
+          animating={true}
+          size="small"
+          color="black"
+          style={loadingStyle.centered}
+        />
       );
     } else {
       return (

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import About from './About';
-import { ActivityIndicator } from 'react-native';
+import { ActivityIndicator, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchCodeOfConduct } from './../../redux/actions/codeOfConductActions';
+import { loadingStyle } from './../../config/styles'
 
 class AboutContainer extends Component {
 
@@ -19,10 +20,15 @@ class AboutContainer extends Component {
   render() {
     const codeOfConduct = this.props.codeOfConduct;
     const loading = this.props.loading;
-    
+
     if (loading) {
       return (
-        <ActivityIndicator animating={true} size="small" color="black" />
+        <ActivityIndicator
+          animating={true}
+          size="small"
+          color="black"
+          style={loadingStyle.centered}
+        />
       );
     } else {
       return (
