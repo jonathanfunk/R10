@@ -10,45 +10,53 @@ import { styles } from './styles';
 import { Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { timeHelper } from './../../lib/timeHelper';
-import { createFave, deleteFave } from './../../config/model';
+import { createFave, deleteFave, queryFaves } from './../../config/model';
 
+const queried = queryFaves();
 
 class Session extends Component {
 
   constructor() {
     super();
     this.state = {
-      faved: false,
-      favedText: 'Add to faves',
-      heartColor: 'white'
+      favedToggle: false,
+    }
+  }
+
+  componentDidMount() {
+    if (queried.includes(this.props.session.session_id)) {
+      console.log('Something happened!')
+      this.setState({ favedToggle: true })
+    } else {
+      console.log('Something else happened!')
+      this.setState({ favedToggle: false })
     }
   }
 
   render() {
 
     const createFavorite = (id) => {
-      this.setState({ faved: !this.state.faved });
-      if (this.state.faved) {
-        createFave(id)
-        this.setState({ favedText: 'Remove from faves' })
-        this.setState({ heartColor: 'red' })
-      } else {
+      if (this.state.favedToggle) {
         deleteFave(id)
-        this.setState({ favedText: 'Add to faves' })
-        this.setState({ heartColor: 'white' })
+        this.setState({ favedToggle: false })
+      } else {
+        createFave(id)
+        this.setState({ favedToggle: true })
       }
     }
 
+    console.log(this.state.favedToggle)
+    
     return (
 
       <View style={styles.wrap}>
         <View style={styles.locationWrap}>
           <Text style={styles.greyHeader}>{this.props.session.location}</Text>
           {Platform.OS === 'ios' &&
-            <Icon name='ios-heart' size={16} color={this.state.heartColor} />
+            <Icon name='ios-heart' size={16} color={this.state.favedToggle ? 'red' : 'white'} />
           }
           {Platform.Version === 23 &&
-            <Icon name='md-heart' size={16} color={this.state.heartColor} />
+            <Icon name='md-heart' size={16} color={this.state.favedToggle ? 'red' : 'white'} />
           }
         </View>
         <Text style={styles.headerText}>{this.props.session.title}</Text>
@@ -70,11 +78,11 @@ class Session extends Component {
           </TouchableOpacity>
         </View>
         <TouchableOpacity
-          style={{alignItems: 'center'}}
+          style={{ alignItems: 'center' }}
           onPress={() => { createFavorite(this.props.session.session_id) }}
           activeOpacity={75 / 100}>
           <View style={styles.button}>
-            <Text style={styles.buttonText}>{this.state.favedText}</Text>
+            <Text style={styles.buttonText}>{this.state.favedToggle ? 'Remove from Faves' : 'Add to Faves'}</Text>
           </View>
         </TouchableOpacity>
       </View>
