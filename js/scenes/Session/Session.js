@@ -3,7 +3,8 @@ import {
   Text,
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  ScrollView
 } from 'react-native';
 import { goToSpeaker } from './../../lib/navigationHelpers';
 import { styles } from './styles';
@@ -45,7 +46,7 @@ class Session extends Component {
     
     return (
 
-      <View style={styles.wrap}>
+      <ScrollView style={styles.wrap}>
         <View style={styles.locationWrap}>
           <Text style={styles.greyHeader}>{this.props.session.location}</Text>
           {Platform.OS === 'ios' &&
@@ -84,7 +85,7 @@ class Session extends Component {
             <Text style={styles.buttonText}>{this.state.favedToggle ? 'Remove from Faves' : 'Add to Faves'}</Text>
           </View>
         </TouchableOpacity>
-      </View>
+      </ScrollView>
     )
   }
 }
