@@ -8,6 +8,22 @@ import {
 } from '@exponent/ex-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { colors, typography } from '../config/styles';
+import LinearGradient from 'react-native-linear-gradient';
+import { styles } from './styles'
+
+const defaultRouteConfig = {
+  navigationBar: {
+    titleStyle: {
+      color: 'white'
+    },
+    renderBackground: () =>
+      <LinearGradient
+        start={{ x: 0, y: 1 }} end={{ x: 1, y: 0 }}
+        locations={[0, 1]}
+        colors={[colors.red, colors.purple]}
+        style={styles.linearGradient} />
+  }
+}
 
 export default class TabScreen extends Component {
 
@@ -31,6 +47,8 @@ export default class TabScreen extends Component {
             id="schedule"
             navigatorUID="schedule"
             initialRoute={Router.getRoute('schedule')}
+            defaultRouteConfig={defaultRouteConfig}
+
           />
         </DrawerNavigationItem>
         <DrawerNavigationItem
@@ -43,6 +61,7 @@ export default class TabScreen extends Component {
             id="faves"
             navigatorUID="faves"
             initialRoute={Router.getRoute('faves')}
+            defaultRouteConfig={defaultRouteConfig}
           />
         </DrawerNavigationItem>
         <DrawerNavigationItem
@@ -55,6 +74,7 @@ export default class TabScreen extends Component {
             id="map"
             navigatorUID="map"
             initialRoute={Router.getRoute('map')}
+            defaultRouteConfig={defaultRouteConfig}
           />
         </DrawerNavigationItem>
         <DrawerNavigationItem
@@ -67,6 +87,7 @@ export default class TabScreen extends Component {
             id="about"
             navigatorUID="about"
             initialRoute={Router.getRoute('about')}
+            defaultRouteConfig={defaultRouteConfig}
           />
         </DrawerNavigationItem>
       </DrawerNavigation>
