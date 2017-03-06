@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { typography, colors } from './../../config/styles';
+import { Platform } from 'react-native';
 
 export const styles = StyleSheet.create({
   wrap: {
@@ -48,8 +49,16 @@ export const styles = StyleSheet.create({
   speakerImage: {
     width: 50,
     height: 50,
-    borderRadius: 25,
+    overflow: 'hidden',
     marginRight: 10,
+    ...Platform.select({
+      ios: {
+        borderRadius: 25,
+      },
+      android: {
+        borderRadius: 100,
+      },
+    }),
   },
   buttonText: {
     fontFamily: typography.fontMain,
