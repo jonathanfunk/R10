@@ -3,12 +3,10 @@ import {
   View,
   Text,
   TouchableOpacity,
-  StyleSheet,
   LayoutAnimation,
   Animated
 } from 'react-native';
-import { typography, colors } from './../../config/styles';
-
+import { styles } from './styles';
 
 class Conduct extends Component {
 
@@ -21,14 +19,15 @@ class Conduct extends Component {
   }
 
   onPress = () => {
+
     this.state.rotateValue.setValue(0)
-    
     Animated.timing(
       this.state.rotateValue,
       { toValue: 360 }
     ).start()
     LayoutAnimation.linear();
     this.setState({ expanded: !this.state.expanded });
+
   }
 
   render() {
@@ -43,6 +42,7 @@ class Conduct extends Component {
         { rotate: spin },
       ]
     }
+    
     return (
       <View>
         <TouchableOpacity
@@ -60,26 +60,5 @@ class Conduct extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  codeWrap: {
-    flexDirection: 'row',
-  },
-  paragraph: {
-    fontFamily: typography.fontMainLight,
-    marginBottom: 10,
-  },
-  codeTitle: {
-    fontFamily: typography.fontMain,
-    color: colors.purple,
-    marginBottom: 10,
-  },
-  expanded: {
-    alignItems: 'center',
-    textAlign: 'center',
-    width: 12,
-    height: 16,
-  }
-});
 
 export default Conduct;

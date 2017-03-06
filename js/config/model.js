@@ -12,15 +12,15 @@ const Fave = {
 
 export const realm = new Realm({ schema: [Fave] });
 
-//Query faves THIS
+//Query Faves
 export const queryFaves = () => {
   return realm.objects('Fave').map((fave) => fave.id)
 }
 
-//Get faves
+//Get Faves
 export const getFaves = () => realm.objects('Fave');
 
-//Create faves
+//Create Faves
 export const createFave = (id) => {
   realm.write(() => {
     realm.create('Fave', { id: id, faved_on: new Date() })
@@ -28,7 +28,7 @@ export const createFave = (id) => {
 }
 
 
-//Delete fave
+//Delete Fave
 export const deleteFave = (id) => {
   realm.write(() => {
 
