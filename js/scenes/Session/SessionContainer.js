@@ -3,6 +3,7 @@ import Session from './Session';
 import { connect } from 'react-redux';
 import { ActivityIndicator } from 'react-native';
 import { fetchSpeakers } from './../../redux/actions/speakerActions';
+import { loadingIndicator } from './../../config/styles'
 
 class SessionContainer extends Component {
 

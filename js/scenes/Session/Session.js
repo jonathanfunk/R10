@@ -25,10 +25,8 @@ class Session extends Component {
 
   componentDidMount() {
     if (queried.includes(this.props.session.session_id)) {
-      console.log('Something happened!')
       this.setState({ favedToggle: true })
     } else {
-      console.log('Something else happened!')
       this.setState({ favedToggle: false })
     }
   }
@@ -44,8 +42,6 @@ class Session extends Component {
         this.setState({ favedToggle: true })
       }
     }
-
-    console.log(this.state.favedToggle)
     
     return (
 
@@ -62,21 +58,24 @@ class Session extends Component {
         <Text style={styles.headerText}>{this.props.session.title}</Text>
         <Text style={styles.time}>{timeHelper(this.props.session.start_time)}</Text>
         <Text style={styles.description}>{this.props.session.description}</Text>
-        <Text style={styles.greyHeader}>Presented by:</Text>
-        <View style={styles.speakerLink}>
-          <TouchableOpacity
-            onPress={() => { goToSpeaker(this.props.speaker); }}
-            activeOpacity={75 / 100}>
-            <View style={styles.speakerWrap}>
-              <Image
-                style={styles.speakerImage}
-                resizeMode={"contain"}
-                source={{ uri: this.props.speaker.image }}
-              />
-              <Text>{this.props.speaker.name}</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
+        {
+          this.props.speaker &&        
+          <View style={styles.speakerLink}>
+            <Text style={styles.greyHeader}>Presented by:</Text>
+            <TouchableOpacity
+              onPress={() => { goToSpeaker(this.props.speaker); }}
+              activeOpacity={75 / 100}>
+              <View style={styles.speakerWrap}>
+                <Image
+                  style={styles.speakerImage}
+                  resizeMode={"contain"}
+                  source={{ uri: this.props.speaker.image }}
+                />
+                <Text>{this.props.speaker.name}</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        }
         <TouchableOpacity
           style={{ alignItems: 'center' }}
           onPress={() => { createFavorite(this.props.session.session_id) }}
