@@ -13,7 +13,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { timeHelper } from './../../lib/timeHelper';
 import { createFave, deleteFave, queryFaves } from './../../config/model';
 
-const queried = queryFaves();
 
 class Session extends Component {
 
@@ -22,10 +21,12 @@ class Session extends Component {
     this.state = {
       favedToggle: false,
     }
+    this.queried = queryFaves();
   }
 
+
   componentDidMount() {
-    if (queried.includes(this.props.session.session_id)) {
+    if (this.queried.includes(this.props.session.session_id)) {
       this.setState({ favedToggle: true })
     } else {
       this.setState({ favedToggle: false })
@@ -43,7 +44,9 @@ class Session extends Component {
         this.setState({ favedToggle: true })
       }
     }
-    
+
+    console.log('Is this a favorite?', this.state.favedToggle)
+
     return (
 
       <ScrollView style={styles.wrap}>
@@ -60,11 +63,11 @@ class Session extends Component {
         <Text style={styles.time}>{timeHelper(this.props.session.start_time)}</Text>
         <Text style={styles.description}>{this.props.session.description}</Text>
         {
-          this.props.speaker &&        
+          this.props.speaker &&
           <View style={styles.speakerLink}>
             <Text style={styles.greyHeader}>Presented by:</Text>
             <TouchableOpacity
-              onPress={() => { goToSpeaker(this.props.speaker); }}
+              onPress={(e) => { e.preventDefault().goToSpeaker(this.props.speaker); }}
               activeOpacity={75 / 100}>
               <View style={styles.speakerWrap}>
                 <Image
