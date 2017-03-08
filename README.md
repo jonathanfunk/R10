@@ -2,7 +2,7 @@ R10
 ======
 
 ## Project
-This is a mobile app for a mock up developer conference. The objective of this project is to create an Android/iOS app using React Native
+This is an Android/iOS app for a web developer conference. The objective of this project is to build an app using React Native.
 
 ## Technology
 * Visual Studio Code Text Editor
