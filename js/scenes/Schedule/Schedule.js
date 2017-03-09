@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
   ListView,
   View,
@@ -15,53 +15,58 @@ import { Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { queryFaves } from './../../config/model'
 
-const queried = queryFaves();
+class Schedule extends Component {
 
-console.log(queried)
-
-const heartColor = (id) => {
-  if(queried.includes(id)){
-    return colors.red;
-  } else {
-    return 'white'
+  constructor() {
+    super();
+    this.state = {
+      isFaved: false,
+    }
+    this.queried = queryFaves();
   }
-}
 
+  render() {
 
-const Schedule = ({ data }) => {
-
-  return (
-    <ListView
-      dataSource={data}
-      renderSectionHeader={(sectionData, startTime) =>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>{timeHelper(startTime)}</Text>
-        </View>
+    const heartColor = (id) => {
+      if (this.queried.includes(id)) {
+        return colors.red;
+      } else {
+        return 'white'
       }
+    }
 
-      renderRow={data =>
-        <View style={styles.row}>
-        <TouchableOpacity
-          onPress={() => { goToSession('schedule', data); }}
-          activeOpacity={75 / 100}>
-          <View>
-            <Text style={styles.title}>{data.title}</Text>
-            <View style={styles.locationWrap}>
-              <Text style={styles.location}>{data.location}</Text>
-              {Platform.OS === 'ios' &&
-                <Icon name='ios-heart' size={12} color={heartColor(data.session_id)} />
-              }
-              {Platform.Version === 23 &&
-                <Icon name='md-heart' size={12} color={heartColor(data.session_id)} />
-              }
-            </View>
+    return (
+      <ListView
+        dataSource={this.props.data}
+        renderSectionHeader={(sectionData, startTime) =>
+          <View style={styles.header}>
+            <Text style={styles.headerText}>{timeHelper(startTime)}</Text>
           </View>
-        </TouchableOpacity>
-        </View>
-      }
-    />
-  )
+        }
 
+        renderRow={data =>
+          <View style={styles.row}>
+            <TouchableOpacity
+              onPress={() => { goToSession('schedule', data); }}
+              activeOpacity={75 / 100}>
+              <View>
+                <Text style={styles.title}>{data.title}</Text>
+                <View style={styles.locationWrap}>
+                  <Text style={styles.location}>{data.location}</Text>
+                  {Platform.OS === 'ios' &&
+                    <Icon name='ios-heart' size={12} color={heartColor(data.session_id)} />
+                  }
+                  {Platform.Version === 23 &&
+                    <Icon name='md-heart' size={12} color={heartColor(data.session_id)} />
+                  }
+                </View>
+              </View>
+            </TouchableOpacity>
+          </View>
+        }
+      />
+    )
+  }
 }
 
 

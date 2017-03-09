@@ -24,7 +24,6 @@ class Session extends Component {
     this.queried = queryFaves();
   }
 
-
   componentDidMount() {
     if (this.queried.includes(this.props.session.session_id)) {
       this.setState({ favedToggle: true })
@@ -44,8 +43,6 @@ class Session extends Component {
         this.setState({ favedToggle: true })
       }
     }
-
-    console.log('Is this a favorite?', this.state.favedToggle)
 
     return (
 
