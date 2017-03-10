@@ -13,7 +13,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { timeHelper } from './../../lib/timeHelper';
 import { createFave, deleteFave, queryFaves } from './../../config/model';
 
-
 class Session extends Component {
 
   constructor() {
@@ -64,7 +63,7 @@ class Session extends Component {
           <View style={styles.speakerLink}>
             <Text style={styles.greyHeader}>Presented by:</Text>
             <TouchableOpacity
-              onPress={(e) => { e.preventDefault().goToSpeaker(this.props.speaker); }}
+              onPress={() => { goToSpeaker(this.props.speaker); }}
               activeOpacity={75 / 100}>
               <View style={styles.speakerWrap}>
                 <Image
@@ -89,5 +88,10 @@ class Session extends Component {
     )
   }
 }
+
+Session.propTypes = {
+  session: PropTypes.object.isRequired,
+  speaker: PropTypes.object.isRequired,
+};
 
 export default Session;

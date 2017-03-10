@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import {
   ListView,
   View,
@@ -49,6 +49,10 @@ const Schedule = ({ data }) => {
   )
 
 }
+
+Schedule.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
 
 export default Schedule;

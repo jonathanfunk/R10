@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Schedule from './Schedule';
 import { connect } from 'react-redux';
 import { ActivityIndicator } from 'react-native';
@@ -10,7 +10,6 @@ class ScheduleContainer extends Component {
 
   componentDidMount() {
     this.props.fetchSession()
-    //fetch faves
   }
 
   static route = {
@@ -51,9 +50,6 @@ const mapDispatchToProps = dispatch => ({
   fetchSession: () => {
     dispatch(fetchSession());
   },
-  // fetchFavedSessions() {
-  //   dispatch(fetchFavedSessions())
-  // },
 });
 
 const mapStateToProps = state => ({
