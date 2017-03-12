@@ -14,7 +14,7 @@ class Heart extends Component {
     this.queried = queryFaves();
   }
 
-  componentDidMount() {
+  componentWillMount() {
     if (this.queried.includes(this.props.data)) {
       this.setState({ isFaved: true })
     } else {

@@ -39,7 +39,7 @@ const Schedule = ({ data }) => {
                 }
                 {Platform.Version === 23 &&
                   <Heart iconName='md-heart' data={data.session_id} />
-              }
+                }
               </View>
             </View>
           </TouchableOpacity>

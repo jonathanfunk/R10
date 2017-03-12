@@ -9,7 +9,7 @@ export const DELETE_FAVES = 'DELETE_FAVES';
 //Faves Action Creators
 export const postFaves = fave => ({ type: POST_FAVES, payload: fave })
 export const addFave = id => ({ type: POST_FAVES, payload: id })
-export const deleteFave = fave => ({ type: POST_FAVES, payload: id })
+export const deleteFave = id => ({ type: POST_FAVES, payload: id })
 
 //Fetch Faves Thunk
 export const fetchFaves = () => {
@@ -20,7 +20,7 @@ export const fetchFaves = () => {
       .then((response) => response.json())
       .then((result) => {
         const queried = queryFaves()
-        const filtered = result.filter(x => queried.indexOf(x.session_id) > -1)
+        const filtered = result.filter(session => queried.indexOf(session.session_id) > -1)
         dispatch(postFaves(filtered));
         dispatch(doneLoading())
       })

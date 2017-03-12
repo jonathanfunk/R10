@@ -12,7 +12,7 @@ import { goToSession } from './../../lib/navigationHelpers';
 import { styles } from './styles';
 import { timeHelper } from './../../lib/timeHelper';
 import { Platform } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Heart from './../../components/Heart/index'
 
 const Faves = ({ data }) => {
 
@@ -27,22 +27,22 @@ const Faves = ({ data }) => {
 
       renderRow={data =>
         <View style={styles.row}>
-        <TouchableOpacity
-          onPress={() => { goToSession('faves', data); }}
-          activeOpacity={75 / 100}>
-          <View>
-            <Text style={styles.title}>{data.title}</Text>
-            <View style={styles.locationWrap}>
-              <Text style={styles.location}>{data.location}</Text>
-              {Platform.OS === 'ios' &&
-                <Icon name='ios-heart' size={12} color={colors.red} />
-              }
-              {Platform.Version === 23 &&
-                <Icon name='md-heart' size={12} color={colors.red} />
-              }
+          <TouchableOpacity
+            onPress={() => { goToSession('faves', data); }}
+            activeOpacity={75 / 100}>
+            <View>
+              <Text style={styles.title}>{data.title}</Text>
+              <View style={styles.locationWrap}>
+                <Text style={styles.location}>{data.location}</Text>
+                {Platform.OS === 'ios' &&
+                  <Heart iconName='ios-heart' data={data.session_id} />
+                }
+                {Platform.Version === 23 &&
+                  <Heart iconName='md-heart' data={data.session_id} />
+                }
+              </View>
             </View>
-          </View>
-        </TouchableOpacity>
+          </TouchableOpacity>
         </View>
       }
     />
