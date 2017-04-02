@@ -4,9 +4,17 @@ import { connect } from 'react-redux';
 import { ActivityIndicator } from 'react-native';
 import { fetchFaves } from './../../redux/actions/realmActions';
 import { ListView } from 'react-native';
-import { loadingStyle } from './../../config/styles'
+import { loadingStyle } from './../../config/styles';
+import { realm } from './../../config/model'
 
 class FavesContainer extends Component {
+
+  constructor() {
+    super();
+    realm.addListener('change', () => {
+     this.props.fetchFaves()
+    });
+  }
 
   componentDidMount() {
     this.props.fetchFaves()

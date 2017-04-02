@@ -23,7 +23,7 @@ class Conduct extends Component {
     this.state.rotateValue.setValue(0)
     Animated.timing(
       this.state.rotateValue,
-      { toValue: 360 }
+      { toValue: 1 }
     ).start()
     LayoutAnimation.linear();
     this.setState({ expanded: !this.state.expanded });

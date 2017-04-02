@@ -37,6 +37,9 @@ class Session extends Component {
       if (this.state.favedToggle) {
         deleteFave(id)
         this.setState({ favedToggle: false })
+        if(!this.props.speaker){
+          console.log('Nooo!')
+        }
       } else {
         createFave(id)
         this.setState({ favedToggle: true })

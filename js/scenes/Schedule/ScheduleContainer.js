@@ -5,8 +5,16 @@ import { ActivityIndicator } from 'react-native';
 import { fetchSession } from './../../redux/actions/sessionActions';
 import { ListView } from 'react-native';
 import { loadingStyle } from './../../config/styles'
+import { realm } from './../../config/model'
 
 class ScheduleContainer extends Component {
+
+  constructor() {
+    super();
+    realm.addListener('change', () => {
+      this.props.fetchSession()
+    });
+  }
 
   componentDidMount() {
     this.props.fetchSession()
