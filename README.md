@@ -20,3 +20,20 @@ This is the first time developing without using HTML or CSS but I was quick to l
 
 I enjoyed working with React Native. I can't wait to work with it some more.
 
+## iOS Installation Instructions
+* [Install XCode](https://developer.apple.com/xcode/)
+* Download/clone project
+* Run npm install
+* Run react-native link
+* Run react-native start
+* Run react-native run-ios
+
+## Android Installation Instructions
+* Install Android Studio
+* [Configure Android Studio](https://facebook.github.io/react-native/releases/0.23/docs/android-setup.html)
+* Download/clone project
+* Run npm install
+* Run react-native link
+* Run react-native start
+* Run react-native run-ios
+
