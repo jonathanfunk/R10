@@ -1,5 +1,6 @@
 R10
 ======
+![r10-mockup](https://cloud.githubusercontent.com/assets/20465505/25629547/b596a960-2f1e-11e7-90ce-7d4a6cb86297.jpg)
 
 ## Project
 This is an Android/iOS app for a web developer conference. The objective of this project is to build an app using React Native.
