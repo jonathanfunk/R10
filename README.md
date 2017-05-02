@@ -30,7 +30,7 @@ I enjoyed working with React Native. I can't wait to work with it some more.
 * Run react-native run-ios
 
 ## Android Installation Instructions
-* Install Android Studio
+* [Install Android Studio](https://developer.android.com/studio/index.html)
 * [Configure Android Studio](https://facebook.github.io/react-native/releases/0.23/docs/android-setup.html)
 * Download/clone project
 * Run npm install
