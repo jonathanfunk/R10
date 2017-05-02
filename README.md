@@ -35,5 +35,5 @@ I enjoyed working with React Native. I can't wait to work with it some more.
 * Run npm install
 * Run react-native link
 * Run react-native start
-* Run react-native run-ios
+* Run react-native run-android
 
